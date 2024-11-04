@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrowOnPad : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DrowOnPad : MonoBehaviour
     RectTransform canvas;    
 
     private LineRenderer curLine;
+    private List<LineRenderer> lines = new();
     private List<Vector3> points = new List<Vector3>();
 
     Vector3[] corners = new Vector3[4];
@@ -63,6 +65,7 @@ public class DrowOnPad : MonoBehaviour
         curLine.endWidth = lineWidth;
         curLine.positionCount = 0;
         points.Clear();
+        lines.Add(curLine);
     }
 
     void Draw()
@@ -99,5 +102,11 @@ public class DrowOnPad : MonoBehaviour
             && topRight.x >= inputPos.x
             && bottomLeft.y <= inputPos.y
             && topRight.y >= inputPos.y;
+    }
+
+    public void SaveImage()
+    {
+        
+
     }
 }
